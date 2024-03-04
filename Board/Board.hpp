@@ -36,6 +36,8 @@ public:
 
     void makeMove(std::string);
 
+    void botMove();
+
     int convertSquareToIndex(std::string);
 };
 

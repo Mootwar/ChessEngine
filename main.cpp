@@ -2,7 +2,7 @@
     Chess Engine Project
 */
 #include <iostream>
-#include <Board/Board.cpp>
+#include "Board/Board.hpp"
 #include <cstdint>
 
 // Function to finish the game based on the game over condition
@@ -22,6 +22,7 @@ int main() {
 
     // Initialize board, engine, etc.
     Board chessBoard;
+    std::cout << chessBoard.convertSquareToIndex("h8");
     chessBoard.printBoard();
     // Main loop for the game
     // The game starts
@@ -36,7 +37,7 @@ int main() {
         finishGame(gameOver);
         
         // Bot makes a move
-        chessBoard.ansMove();
+        chessBoard.botMove();
         // Print board state
         chessBoard.printBoard();
         // Check for end conditions

@@ -16,10 +16,8 @@ Board::Board() {
     blackRooks = 0;
     blackQueens = 0;
     blackKings = 0;
-
-    // Set up the initial position
     setupInitialPosition();
-}
+} 
 
 // Method to set up the initial chessboard position
 void Board::setupInitialPosition() {
@@ -72,13 +70,14 @@ void Board::makeMove(std::string move) {
     occupancy = whitePawns; // For simplicity, assuming only one piece moved
 }
 
-int convertSquareToIndex(std::string square) {
+int Board::convertSquareToIndex(std::string square) {
     // Extract rank and file from algebraic notation
     int rank = square[1] - '0'; // Convert character to integer (e.g., '1' -> 1)
     int file = square[0] - 'a'; // Convert character to zero-based index ('a' -> 0, 'b' -> 1, ..., 'h' -> 7)
-    
     // Calculate linear index in bitboard
-    int index = (rank - 1) * 8 + file;
-    
-    return index;
+    return (file) * 8 + rank-1;
+}
+
+void Board::botMove(){
+
 }
