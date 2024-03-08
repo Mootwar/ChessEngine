@@ -23,7 +23,8 @@ private:
 
     // Define the occupancy bitboard
     uint64_t occupancy;
-
+    uint64_t allBlack;
+    uint64_t allWhite;
 public:
     // Constructor
     Board();

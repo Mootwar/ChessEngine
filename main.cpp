@@ -27,21 +27,24 @@ int main() {
     // Main loop for the game
     // The game starts
     while (!gameOver) {
+        // userIn =
         // User makes a move
-        chessBoard.makeMove();
+        // chessBoard.makeMove();
         // Print board state
         chessBoard.printBoard();
+        char n;
+        std::cin >> n;
         // Check for end conditions (checkmate, stalemate, etc.)
-        gameOver = chessBoard.criticalCheck();
+        // gameOver = chessBoard.criticalCheck();
         // Finish the game if the game is over
         finishGame(gameOver);
         
         // Bot makes a move
-        chessBoard.botMove();
+        // chessBoard.botMove();
         // Print board state
-        chessBoard.printBoard();
+        // chessBoard.printBoard();
         // Check for end conditions
-        gameOver = chessBoard.criticalCheck();
+        // gameOver = chessBoard.criticalCheck();
         // Finish the game if the game is over
         finishGame(gameOver);
     }

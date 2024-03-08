@@ -16,19 +16,35 @@ Board::Board() {
     blackRooks = 0;
     blackQueens = 0;
     blackKings = 0;
+
+    occupancy = 0;
+
     setupInitialPosition();
 } 
 
 // Method to set up the initial chessboard position
 void Board::setupInitialPosition() {
-    // Set up each piece's bitboard with their initial positions
+    // Set up each piece's bitboard with their initial positions 00000000
     // For example:
-    whitePawns = 0x00FF000000000000; // White pawns on second rank
-    whiteKnights = 0x4200000000000000; // White knights on b1 and g1
-    // ...
+    whitePawns =   0b0000000000000000000000000000000000000000000000001111111100000000; // White pawns on second rank
+    whiteKnights = 0b0000000000000000000000000000000000000000000000000000000001000010; // White knights on b1 and g1
+    whiteBishops = 0b0000000000000000000000000000000000000000000000000000000000100100;
+    whiteRooks=    0b0000000000000000000000000000000000000000000000000000000010000001;
+    whiteQueens=   0b0000000000000000000000000000000000000000000000000000000000010000;
+    whiteKings=    0b0000000000000000000000000000000000000000000000000000000000001000;
+
+    blackPawns=    0b0000000011111111000000000000000000000000000000000000000000000000;
+    blackKnights=  0b0100001000000000000000000000000000000000000000000000000000000000;
+    blackBishops=  0b0010010000000000000000000000000000000000000000000000000000000000;
+    blackRooks=    0b1000000100000000000000000000000000000000000000000000000000000000;
+    blackQueens=   0b0001000000000000000000000000000000000000000000000000000000000000;
+    blackKings=    0b0000100000000000000000000000000000000000000000000000000000000000;
 
     // Update the occupancy bitboard
     //occupancy = whitePawns | whiteKnights | /* other white pieces */ | blackPawns | /* other black pieces */;
+    occupancy=    0b1111111111111111000000000000000000000000000000001111111111111111;
+    allWhite= whiteBishops | whiteKings | whiteKnights | whitePawns | whiteQueens | whiteRooks;
+    allBlack= blackBishops | blackKings | blackKnights | blackPawns | blackQueens | blackRooks;
 }
 
 // Other methods for interacting with the board can be implemented here
